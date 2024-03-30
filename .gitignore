@@ -1,0 +1,26 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies-backend
+/cdazzdev_online_learning_platform_backend/node_modules
+
+# dependencies-frontend
+/cdazzdev_online_learning_platform_frontend/node_modules
+/cdazzdev_online_learning_platform_frontend/.pnp
+/cdazzdev_online_learning_platform_frontend/.pnp.js
+
+# testing
+/cdazzdev_online_learning_platform_frontend/coverage
+
+# production
+/cdazzdev_online_learning_platform_frontend/build
+
+# misc
+/cdazzdev_online_learning_platform_frontend/.DS_Store
+/cdazzdev_online_learning_platform_frontend/.env.local
+/cdazzdev_online_learning_platform_frontend/.env.development.local
+/cdazzdev_online_learning_platform_frontend/.env.test.local
+/cdazzdev_online_learning_platform_frontend/.env.production.local
+
+/cdazzdev_online_learning_platform_frontend/npm-debug.log*
+/cdazzdev_online_learning_platform_frontend/yarn-debug.log*
+/cdazzdev_online_learning_platform_frontend/yarn-error.log*
