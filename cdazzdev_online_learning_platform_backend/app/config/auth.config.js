@@ -1,3 +1,3 @@
 module.exports = {
-  secret: "cdazzdev-secret-key"
+  secret: "cdazzdev2024"
 };

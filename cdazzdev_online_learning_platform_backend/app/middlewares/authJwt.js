@@ -3,21 +3,20 @@ const config = require("../config/auth.config.js");
 const db = require("../models");
 const User = db.User;
 
-const verifyToken = (req, res, next) => {
-  let token = req.session.token;
+// const verifyToken = (req, res, next) => {
+//   console.log(req.session);
+//   if (!req.session || !req.session.token) {
+//     return res.status(403).send({ message: "No token provided!" });
+//   }
 
-  if (!token) {
-    return res.status(403).send({ message: "No token provided!" });
-  }
-
-  jwt.verify(token, config.secret, (err, decoded) => {
-    if (err) {
-      return res.status(401).send({ message: "Unauthorized!" });
-    }
-    req.userId = decoded.id;
-    next();
-  });
-};
+//   jwt.verify(req.session.token, config.secret, (err, decoded) => {
+//     if (err) {
+//       return res.status(401).send({ message: "Unauthorized!" });
+//     }
+//     req.userId = decoded.id;
+//     next();
+//   });
+// };
 
 const isAdmin = async (req, res, next) => {
   try {
@@ -51,10 +50,8 @@ const isStudent = async (req, res, next) => {
   }
 };
 
-const authJwt = {
-  verifyToken,
+module.exports = {
+  // verifyToken,
   isAdmin,
   isStudent,
 };
-
-module.exports = authJwt;

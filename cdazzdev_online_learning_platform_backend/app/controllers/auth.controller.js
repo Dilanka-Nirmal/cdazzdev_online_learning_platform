@@ -1,26 +1,24 @@
 const config = require("../config/auth.config");
 const db = require("../models");
 const User = db.User;
-
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
+let validToken = null;
 
 exports.signup = async (req, res) => {
   const { username, email, password, role } = req.body;
 
   try {
-    // Check if role provided is valid
     if (role && !["student", "admin"].includes(role)) {
       return res.status(400).send({ message: "Invalid role specified." });
     }
 
-    // Create a new user
     const hashedPassword = await bcrypt.hash(password, 8);
     const user = new User({
       username,
       email,
       password: hashedPassword,
-      role: role || "student" // Default role is student if not provided
+      role: role || "student"
     });
 
     await user.save();
@@ -51,23 +49,36 @@ exports.signin = async (req, res) => {
       expiresIn: 86400 // 24 hours
     });
 
-    // Get user's role
-    const role = user.role || "student"; // Default role if not specified
-
-    // Assign the token to the session
+    // Store the token in the session
     req.session.token = token;
+    validToken = req.session.token;
 
-    // Send the response
+    const role = user.role || "student";
+
     res.status(200).send({
       id: user._id,
       username: user.username,
       email: user.email,
-      role, // Sending the role directly as a string
+      role,
       accessToken: token
     });
   } catch (err) {
     res.status(500).send({ message: err.message || "Some error occurred while signing in." });
   }
+};
+
+exports.verifyToken = (req, res, next) => {
+  if (!validToken) {
+    return res.status(403).send({ message: "No token provided!" });
+  }
+
+  jwt.verify(validToken, config.secret, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: "Unauthorized!" });
+    }
+    req.userId = decoded.id;
+    next();
+  });
 };
 
 exports.signout = async (req, res) => {
