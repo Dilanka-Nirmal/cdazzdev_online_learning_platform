@@ -45,6 +45,3 @@ To run the application locally, follow these steps:
 
 ## Contributors
 - [Dilanka Nirmal](https://github.com/Dilanka-Nirmal)
-
-## License
-This project is licensed under the [MIT License](LICENSE).
