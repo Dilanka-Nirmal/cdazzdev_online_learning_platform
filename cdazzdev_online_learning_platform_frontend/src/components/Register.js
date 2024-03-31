@@ -156,7 +156,7 @@ const Register = (props) => {
 
               <div className="form-group">
                 <label>
-                  Role:
+                  Choose a role:
                   <br />
                   <label>
                     <Input

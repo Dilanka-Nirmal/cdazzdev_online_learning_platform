@@ -5,13 +5,12 @@ const role = require("../middlewares/authJwt");
 const userController = require("../controllers/user.controller");
 
 // Define routes for role-based access
-router.get("/student", [authJwt.verifyToken , role.isStudent], userController.studentBoard);
-router.get("/student/:id", [authJwt.verifyToken, role.isStudent], userController.getUserById);
-
-router.get("/admin", [authJwt.verifyToken, role.isAdmin], userController.adminBoard);
-router.get("/admin/all", [authJwt.verifyToken, role.isAdmin], userController.getAllStudents);
-router.get("/admin/:id", [authJwt.verifyToken, role.isAdmin], userController.getUserById);
-router.put("/admin/:id", [authJwt.verifyToken, role.isAdmin], userController.updateUser);
-router.delete("/admin/:id", [authJwt.verifyToken, role.isAdmin], userController.deleteUser);
+router.get("/", [authJwt.verifyToken , role.isStudent], userController.studentBoard);
+router.get("/:id", [authJwt.verifyToken, role.isStudent], userController.getUserById);
+router.get("/", [authJwt.verifyToken, role.isAdmin], userController.adminBoard);
+router.get("/all", [authJwt.verifyToken, role.isAdmin], userController.getAllStudents);
+router.get("/:id", [authJwt.verifyToken, role.isAdmin], userController.getUserById);
+router.put("/:id", [authJwt.verifyToken, role.isAdmin], userController.updateUser);
+router.delete("/:id", [authJwt.verifyToken, role.isAdmin], userController.deleteUser);
 
 module.exports = router;

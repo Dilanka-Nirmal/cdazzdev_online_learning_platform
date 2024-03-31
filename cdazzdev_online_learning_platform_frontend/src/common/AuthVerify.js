@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const parseJwt = (token) => {
@@ -15,10 +15,10 @@ const AuthVerify = () => {
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user) {
+    if (user && user.accessToken) { // Check if user and accessToken exist
       const decodedJwt = parseJwt(user.accessToken);
 
-      if (decodedJwt.exp * 1000 < Date.now()) {
+      if (decodedJwt && decodedJwt.exp * 1000 < Date.now()) { // Check if decodedJwt exists
         localStorage.removeItem("user");
         navigate("/login");
       }

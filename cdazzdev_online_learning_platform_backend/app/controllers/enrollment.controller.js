@@ -9,6 +9,7 @@ exports.createEnrollment = async (req, res) => {
       return res.status(400).send({ message: "Both student and course fields are required!" });
     }
 
+    // Create a new enrollment
     const enrollment = new Enrollment({
       student: req.body.student,
       course: req.body.course
@@ -66,7 +67,27 @@ exports.updateEnrollment = async (req, res) => {
   }
 };
 
-// Delete an enrollment by ID
+// Delete a student's enrollment by user ID and course ID
+exports.deleteStudentEnrollment = async (req, res) => {
+  try {
+    const { userId, courseId } = req.params;
+
+    // Find and delete the enrollment
+    const enrollment = await Enrollment.findOneAndDelete({ student: userId, course: courseId });
+    if (!enrollment) {
+      return res.status(404).send({ message: 'Enrollment not found' });
+    }
+
+    res.status(200).send({ message: 'Enrollment deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting enrollment:', error);
+    res.status(500).send({ message: 'Error deleting enrollment' });
+  }
+};
+
+
+
+// Delete the enrollment by ID
 exports.deleteEnrollment = async (req, res) => {
   try {
     const id = req.params.id;
@@ -80,3 +101,15 @@ exports.deleteEnrollment = async (req, res) => {
     res.status(500).send({ message: err.message || `Error deleting enrollment with id ${id}.` });
   }
 };
+
+// Fetch enrollments for a specific user
+exports.getUserEnrollments = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const enrollments = await Enrollment.find({ student: userId }).populate("course", ["title", "description", "instructor"]);
+    res.status(200).send(enrollments);
+  } catch (err) {
+    res.status(500).send({ message: err.message || "Error fetching user enrollments." });
+  }
+};
+

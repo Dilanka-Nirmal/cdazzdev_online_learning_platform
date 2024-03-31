@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
+// Define Course Schema
 const CourseSchema = new mongoose.Schema({
   image:{
     type: String,
-    default: "https://imgur.com/MYdwNDz"
+    default: "https://i.imgur.com/MYdwNDz.jpg"
   },
     title: {
     type: String,

@@ -9,7 +9,7 @@ exports.createCourse = async (req, res) => {
     }
 
     const course = new Course({
-      image: req.body.image || "https://imgur.com/MYdwNDz",
+      image: req.body.image || "https://i.imgur.com/MYdwNDz.jpg",
       title: req.body.title,
       description: req.body.description,
       instructor: req.body.instructor

@@ -1,6 +1,7 @@
 const db = require("../models");
 const User = db.User;
 
+// Check if the username or email is already in use
 const checkDuplicateUsernameOrEmail = async (req, res, next) => {
   try {
     // Check if username is already in use
@@ -22,6 +23,7 @@ const checkDuplicateUsernameOrEmail = async (req, res, next) => {
   }
 };
 
+// Module exports
 module.exports = {
   checkDuplicateUsernameOrEmail
 };

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Define Enrollment Schema
 const EnrollmentSchema = new mongoose.Schema({
   student: {
     type: mongoose.Schema.Types.ObjectId,

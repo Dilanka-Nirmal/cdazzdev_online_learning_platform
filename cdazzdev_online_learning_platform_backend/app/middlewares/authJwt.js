@@ -1,5 +1,5 @@
-const jwt = require("jsonwebtoken");
-const config = require("../config/auth.config.js");
+// const jwt = require("jsonwebtoken");
+// const config = require("../config/auth.config.js");
 const db = require("../models");
 const User = db.User;
 
@@ -18,6 +18,7 @@ const User = db.User;
 //   });
 // };
 
+// Check if the user is an admin
 const isAdmin = async (req, res, next) => {
   try {
     const user = await User.findById(req.userId);
@@ -34,6 +35,7 @@ const isAdmin = async (req, res, next) => {
   }
 };
 
+// Check if the user is a student
 const isStudent = async (req, res, next) => {
   try {
     const user = await User.findById(req.userId);
@@ -50,6 +52,7 @@ const isStudent = async (req, res, next) => {
   }
 };
 
+// Module exports
 module.exports = {
   // verifyToken,
   isAdmin,
