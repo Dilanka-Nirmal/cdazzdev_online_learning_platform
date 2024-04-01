@@ -1,0 +1,255 @@
+.it19184722-myForm-adminDashboard{
+#it19184722-Profile {
+    padding-top: 70px;
+    width: 100%;
+    height: 1100px;
+    background: #3a6186; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to left,
+      #3a6186,
+      #89253e
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to left,
+      #3a6186,
+      #89253e
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  
+  #it19184722-RegForm {
+    padding-top: 110px;
+    width: 100%;
+    height: 1700px;
+    background: #17202a;
+  }
+  
+  #it19184722-Form {
+    padding-top: 110px;
+    width: 100%;
+    height: 800px;
+    background: #17202a; /* fallback for old browsers */
+  }
+  
+  #it19184722-PWResetForm {
+    padding-top: 110px;
+    width: 100%;
+    height: 800px;
+    background: #3a6186; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to left,
+      #3a6186,
+      #89253e
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to left,
+      #3a6186,
+      #89253e
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+  
+  .it19184722-myForm-adminDashboard {
+    padding-bottom: 100px;
+    height: fit-content;
+    border: 4px solid transparent;
+    box-shadow: 5px 8px 20px #888888;
+    background: -webkit-linear-gradient(
+    to left,
+    #3674ad,
+    #ba1c44
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to left,
+    #3674ad,
+    #ba1c44
+  );
+  }
+  
+  .it19184722-myForm {
+    width: 50%;
+    margin: 5% auto;
+    border: 4px solid transparent;
+    /* box-shadow: 5px 8px 20px #888888; */
+    padding: 25px;
+    top: 20%;
+    background: linear-gradient(150deg, #f5f5f5 90%, #194775 10%);
+  }
+  
+  .it19184722-myTable h2 {
+    text-align: center;
+    font-weight: bolder;
+    margin-bottom: 50px;
+  }
+
+  .it19184722-btn {
+    margin: 5px;
+  }
+
+  .it19184722-btn:hover {
+    color: black;
+  }
+
+  .it19184722-green-btn {
+    background-color: #4caf50;
+    color: white;
+    margin-top: 20px;
+    margin-right: 5px;
+    border: #4caf50 2px solid;
+  }
+
+  .it19184722-myForm h2 {
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  .it19184722-btn-section {
+    text-align: center;
+  }
+
+  #it19184722-logout-btn {
+    display: block;
+    margin: 20px auto;
+  }
+
+  .it19184722-myForm .it19184722-mybtn {
+    display: block;
+    margin: 5px auto;
+  }
+
+  .it19184722-center-text {
+    text-align: center;
+  }
+  
+  .it19184722-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    border-radius: 10px;
+    border: 1px solid black;
+    overflow: hidden;
+    box-shadow: 5px 8px 20px #888888;
+  }
+  
+  .it19184722-contacttbl {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    border-radius: 10px;
+    border: 1px solid black;
+    overflow: hidden;
+    box-shadow: 5px 8px 20px #888888;
+  }
+
+  .it19184722-td,
+  .it19184722-th {
+    /* border: 1px solid black; */
+    text-align: left;
+    padding: 8px;
+    font-family: sans-serif;
+  }
+  
+  .it19184722-th {
+    text-align: left;
+    padding: 10px;
+    font-family: sans-serif;
+  }
+
+  .it19184722-td {
+    font-weight: normal;
+    border-bottom: 1px #dedede solid;
+    font-family: sans-serif;
+  }
+
+  .it19184722-tbody {
+    background-color: #ededed;
+  }
+  
+  .it19184722-alert {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .it19184722-btn-section .it19184722-green-btn {
+    margin: 0;
+  }
+
+  .it19184722-ash-btn {
+    background-color: #828282;
+    color: white;
+  }
+
+  .it19184722-td .it19184722-mybtn {
+    margin: 2px auto;
+    text-align: center;
+    width: 90%;
+  }
+  
+  .it19184722-centerDiv {
+    display: flex;
+    justify-content: center;
+  }
+
+  .it19184722-thead {
+    background-color: #194775;
+    color: white;
+  }
+
+  .it19184722-h2 {
+    /* margin-top: 100px; */
+    /* text-align: center; */
+    padding-top: 50px;
+    font-weight: bolder;
+    color: rgb(13, 13, 13);
+    font-family: sans-serif;
+  }
+
+  .it19184722-headerSection {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .it19184722-headerSection #it19184722-search-filter {
+    float: right;
+    width: 25%;
+  }
+
+  .it19184722-headerSection .it19184722-green-btn {
+    margin: 0;
+    margin-right: 5px;
+    float: left;
+  }
+
+  .it19184722-trans-green-btn {
+    background-color: transparent;
+    border: 2px #4caf50 solid;
+    color: #4caf50;
+  }
+
+  .it19184722-trans-green-btn:hover {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .it19184722-containner {
+    width: 82%;
+    margin: 0 auto;
+  }
+
+  .it19184722-link {
+    color: #10a115;
+  }
+
+  .it19184722-link:hover {
+    color: #2b5c2d;
+  }
+
+  .it19184722-green-btn:hover {
+    background-color: #4caf50;
+    border: 2px #4caf50 solid;
+    color:rgb(13, 13, 13);
+  }
+  
+  .it19184722-red-btn:hover {
+    background-color: transparent;
+    color: red;
+  }
+}

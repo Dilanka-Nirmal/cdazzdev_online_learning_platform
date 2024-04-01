@@ -10,7 +10,12 @@ import Register from "./components/Register";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import StudentBoard from "./components/StudentBoard";
-import BoardAdmin from "./components/BoardAdmin";
+import AdminBoard from "./components/AdminBoard";
+import CourseManagement from "./components/CourseManagement";
+import CreateCourse from "./components/CreateCourse";
+import UpdateCourse from "./components/UpdateCourse";
+import StudentManagement from "./components/StudentManagement";
+import EnrollmentManagement from "./components/EnrollmentManagement";
 
 import AuthVerify from "./common/AuthVerify";
 import EventBus from "./common/EventBus";
@@ -50,7 +55,7 @@ function App() {
         <Link to={"/"} className="navbar-brand">
           CDAZZDEV online learning platform
         </Link>
-        <div className="navbar-nav mr-auto">
+        <div className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link to={"/home"} className="nav-link">
               Home
@@ -112,7 +117,12 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route path="/student" element={<StudentBoard />} />
-          <Route path="/admin" element={<BoardAdmin />} />
+          <Route path="/admin" element={<AdminBoard />} />
+          <Route path="/admin/coursemng/view" element={<CourseManagement />} />
+          <Route path="/admin/coursemng/create" element={<CreateCourse />} />
+          <Route path="/admin/coursemng/update/:id" element={<UpdateCourse />} />
+          <Route path="/admin/studentmng/view" element={<StudentManagement />} />
+          <Route path="/admin/enrollmentmng/view" element={<EnrollmentManagement />} />
         </Routes>
       </div>
 

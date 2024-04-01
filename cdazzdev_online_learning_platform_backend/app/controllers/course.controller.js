@@ -70,13 +70,13 @@ exports.updateCourse = async (req, res) => {
 exports.deleteCourse = async (req, res) => {
   try {
     const id = req.params.id;
-    const deletedCourse = await Course.findByIdAndRemove(id);
+    const deletedCourse = await Course.findByIdAndDelete(id);
     if (!deletedCourse) {
-      res.status(404).send({ message: `Cannot delete course with id ${id}. Course not found.` });
-      return;
+      return res.status(404).send({ message: `Cannot delete course with id ${id}. Course not found.` });
     }
     res.status(200).send({ message: "Course deleted successfully!" });
   } catch (err) {
     res.status(500).send({ message: err.message || `Error deleting course with id ${id}.` });
   }
 };
+
