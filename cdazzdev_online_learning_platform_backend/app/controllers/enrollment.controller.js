@@ -85,13 +85,11 @@ exports.deleteStudentEnrollment = async (req, res) => {
   }
 };
 
-
-
 // Delete the enrollment by ID
 exports.deleteEnrollment = async (req, res) => {
   try {
     const id = req.params.id;
-    const deletedEnrollment = await Enrollment.findByIdAndRemove(id);
+    const deletedEnrollment = await Enrollment.findByIdAndDelete(id);
     if (!deletedEnrollment) {
       res.status(404).send({ message: `Cannot delete enrollment with id ${id}. Enrollment not found.` });
       return;

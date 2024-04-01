@@ -10,7 +10,7 @@ router.get("/", [authJwt.verifyToken, role.isAdmin], enrollmentController.getAll
 router.get("/:id", [authJwt.verifyToken], enrollmentController.getEnrollmentById);
 router.get("/enroll/:id", [authJwt.verifyToken, role.isStudent], enrollmentController.getUserEnrollments);
 router.put("/:id", [authJwt.verifyToken, role.isAdmin], enrollmentController.updateEnrollment);
-router.delete("/:id", [authJwt.verifyToken], enrollmentController.deleteEnrollment);
+router.delete("/:id", [authJwt.verifyToken, role.isAdmin], enrollmentController.deleteEnrollment);
 router.delete("/remove/:userId/:courseId", [authJwt.verifyToken, role.isStudent], enrollmentController.deleteStudentEnrollment);
 
 

@@ -1,108 +1,55 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import CourseService from '../services/course.service';
-import './styles/courseManagement.css';
+import EnrollmentService from '../services/enrollment.service';
+import './styles/enrollmentManagement.css';
 
 const EnrollmentManagement = () => {
-  const { id } = useParams();
-  const [courseData, setCourseData] = useState({
-    image: '',
-    title: '',
-    description: '',
-    instructor: '',
-  });
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [enrollments, setEnrollments] = useState([]);
 
-  // Fetch course data by ID
+  // Fetching enrollment data
   useEffect(() => {
     async function fetchData() {
-      try {
-        const response = await CourseService.getCourseById(id);
-        const course = response.data;
-        setCourseData({
-          image: course.image,
-          title: course.title,
-          description: course.description,
-          instructor: course.instructor,
-        });
-      } catch (error) {
-        setErrorMessage('Error fetching course data');
-      }
+      const response = await EnrollmentService.getAllEnrollments();
+      setEnrollments(response.data);
     }
     fetchData();
-  }, [id]);
+  }, []);
 
-  // Update course
-  const updateCourse = async () => {
-    try {
-      const response = await CourseService.updateCourse(id, courseData);
-      setSuccessMessage('Course updated successfully!');
-    } catch (error) {
-      setErrorMessage('Error updating course');
+  // Delete an enrollment
+  const deleteEnrollment = async (id) => {
+    if (window.confirm(`Are you sure about deleting enrollment with ID ${id}?`)) {
+      await EnrollmentService.deleteEnrollment(id);
+      alert(`Enrollment with ID ${id} was deleted successfully!`);
+      window.location.reload();
     }
-  };
-
-  // Handle form submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateCourse();
   };
 
   return (
-    <div className="it19184722-myForm-adminDashboard">
-      <h2 className="it19184722-h2">Update Course</h2>
-      <form onSubmit={handleSubmit} className="form-group it19184722-myForm">
-        <label>Image URL</label>
-        <input
-          type="text"
-          name="image"
-          className="form-control"
-          placeholder="Enter image URL"
-          value={courseData.image}
-          onChange={(e) => setCourseData({ ...courseData, image: e.target.value })}
-          required
-        />
-        <br />
-        <label>Title</label>
-        <input
-          type="text"
-          name="title"
-          className="form-control"
-          placeholder="Enter course title"
-          value={courseData.title}
-          onChange={(e) => setCourseData({ ...courseData, title: e.target.value })}
-          required
-        />
-        <br />
-        <label>Description</label>
-        <textarea
-          name="description"
-          className="form-control"
-          rows="3"
-          placeholder="Enter course description"
-          value={courseData.description}
-          onChange={(e) => setCourseData({ ...courseData, description: e.target.value })}
-          required
-        ></textarea>
-        <br />
-        <label>Instructor</label>
-        <input
-          type="text"
-          name="instructor"
-          className="form-control"
-          placeholder="Enter instructor name"
-          value={courseData.instructor}
-          onChange={(e) => setCourseData({ ...courseData, instructor: e.target.value })}
-          required
-        />
-        <br />
-        <button type="submit" className="btn btn-success">
-          Update Course
-        </button>
-        {successMessage && <div className="alert alert-success">{successMessage}</div>}
-        {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
-      </form>
+    <div className="it19184722-myForm-enrollmentManagement">
+      <h2 className="it19184722-h2">Enrollment Management</h2>
+      <div className="it19184722-myTable">
+        <table className="it19184722-table">
+          <thead className="it19184722-thead">
+            <tr>
+              <th className="it19184722-th">Student</th>
+              <th className="it19184722-th">Course</th>
+              <th className="it19184722-th">Action</th>
+            </tr>
+          </thead>
+          <tbody className="it19184722-tbody">
+            {enrollments.map((enrollment) => (
+              <tr key={enrollment._id} className="it19184722-tr">
+                <td className="it19184722-td">{enrollment.student}</td>
+                <td className="it19184722-td">{enrollment.course}</td>
+                <td className="it19184722-td">
+                  <button onClick={() => deleteEnrollment(enrollment._id)} className="btn btn-danger it19184722-mybtn it19184722-red-btn">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

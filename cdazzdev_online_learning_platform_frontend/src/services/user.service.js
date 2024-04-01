@@ -6,6 +6,22 @@ const API_URL = "http://localhost:8080/api/user/";
 //   return axios.get(API_URL + "all");
 // };
 
+const getAllStudents = () => {
+  return axios.get(API_URL);
+}
+
+const getUserById = (id) => {
+  return axios.get(API_URL + id);
+};
+
+const updateUser = (id, userData) => {
+  return axios.put(API_URL + id, userData);
+};
+
+const deleteUser = (id) => {
+  return axios.delete(API_URL + id);
+};
+
 const getStudentBoard = () => {
   return axios.get(API_URL + "student");
 };
@@ -17,6 +33,10 @@ const getAdminBoard = () => {
 const UserService = {
   getStudentBoard,
   getAdminBoard,
+  getAllStudents,
+  getUserById,
+  updateUser,
+  deleteUser
 }
 
 export default UserService;
