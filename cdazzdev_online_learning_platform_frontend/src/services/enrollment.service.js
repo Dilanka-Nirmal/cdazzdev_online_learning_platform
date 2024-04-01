@@ -11,7 +11,6 @@ const API_URL = "http://localhost:8080/api/enrollment/";
 // };
 
 const createEnrollment = (studentId, courseId) => {
-  console.log("Creating enrollment with student ID:", studentId, "and course ID:", courseId);
   return axios.post(API_URL, { student: studentId, course: courseId });
 };
 

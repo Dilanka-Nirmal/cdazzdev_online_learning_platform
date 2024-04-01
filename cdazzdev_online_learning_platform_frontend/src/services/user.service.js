@@ -7,11 +7,11 @@ const API_URL = "http://localhost:8080/api/user/";
 // };
 
 const getStudentBoard = () => {
-  return axios.get(API_URL + "/");
+  return axios.get(API_URL + "student");
 };
 
 const getAdminBoard = () => {
-  return axios.get(API_URL + "/");
+  return axios.get(API_URL + "admin");
 };
 
 const UserService = {

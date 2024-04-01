@@ -45,7 +45,6 @@ const StudentDashboard = () => {
 
   // Enroll in a course and confirm enrollment
   const handleEnroll = (courseId) => {
-    console.log("Enrolling course with ID:", courseId);
     const userId = currentUser ? currentUser.id : null;
     if (userId && courseId) {
       EnrollmentService.createEnrollment(userId, courseId).then(
@@ -65,7 +64,6 @@ const StudentDashboard = () => {
 
   // Unenroll from a course
   const unenrollCourse = (userId, courseId) => {
-    console.log("Unenrolling course with ID:", courseId);
     if (userId) {
       EnrollmentService.deleteStudentEnrollment(userId, courseId).then(
         (response) => {
