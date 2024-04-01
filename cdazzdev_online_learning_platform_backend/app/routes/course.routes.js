@@ -7,7 +7,7 @@ const courseController = require("../controllers/course.controller");
 // Define routes for Course CRUD operations
 router.post("/", [authJwt.verifyToken, role.isAdmin], courseController.createCourse);
 router.get("/", [authJwt.verifyToken], courseController.getAllCourses);
-router.get("/:id", [authJwt.verifyToken, role.isStudent, role.isAdmin], courseController.getCourseById);
+router.get("/:id", [authJwt.verifyToken, role.isAdmin], courseController.getCourseById);
 router.put("/:id", [authJwt.verifyToken, role.isAdmin], courseController.updateCourse);
 router.delete("/:id", [authJwt.verifyToken, role.isAdmin], courseController.deleteCourse);
 

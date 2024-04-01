@@ -19,7 +19,6 @@ const UpdateCourse = () => {
     async function fetchData() {
       try {
         const response = await CourseService.getCourseById(id);
-        console.log(response.data);
         const course = response.data;
         setCourseData({
           image: course.image,

@@ -5,6 +5,22 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 let validToken = null;
 
+// Verify the token
+exports.verifyToken = (req, res, next) => {
+  if (!validToken) {
+    return res.status(403).send({ message: "No token provided!" });
+  }
+
+  jwt.verify(validToken, config.secret, (err, decoded) => {
+    if (err) {
+      return res.status(401).send({ message: "Unauthorized!" });
+    }
+    // Set the user id in the request
+    req.userId = decoded.id;
+    next();
+  });
+};
+
 // Sign up a new user
 exports.signup = async (req, res) => {
   const { username, email, password, role } = req.body;
@@ -78,21 +94,6 @@ exports.signin = async (req, res) => {
   }
 };
 
-// Verify the token
-exports.verifyToken = (req, res, next) => {
-  if (!validToken) {
-    return res.status(403).send({ message: "No token provided!" });
-  }
-
-  jwt.verify(validToken, config.secret, (err, decoded) => {
-    if (err) {
-      return res.status(401).send({ message: "Unauthorized!" });
-    }
-    // Set the user id in the request
-    req.userId = decoded.id;
-    next();
-  });
-};
 
 // Sign out a user
 exports.signout = async (req, res) => {
