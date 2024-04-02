@@ -29,7 +29,7 @@ Admin side functionalities in Course Management, Student Management, and Enrollm
 
 **Delete**: Admins can delete enrollment records. This capability allows admins to manage enrollments, such as removing erroneous or duplicate enrollments.
 
-*The reason for limiting the capabilities in Student Management and Enrollment Management to view and delete for admins is to maintain proper control and oversight. Admins typically have broader access to manage and maintain the platform, including handling user and enrollment data. However, certain operations like creating or modifying student profiles and enrollments may be restricted to specific roles or processes to ensure data integrity and security.*
+*The reason for limiting the capabilities in Student Management and Enrollment Management to view and delete for admins is to maintain proper control and oversight. Admins typically have broader access to manage and maintain the platform, including handling user and enrollment data. However, certain operations like creating or modifying student profiles and enrollments restricted to ensure data integrity and security.*
 
 ## Technologies Used
 ### Frontend
