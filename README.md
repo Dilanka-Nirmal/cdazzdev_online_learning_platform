@@ -1,7 +1,35 @@
+
 # Online Learning Platform
 
 ## Overview
 The Online Learning Platform is a web application designed to provide users with access to educational resources, courses, and interactive learning materials. It offers features for both students and administrators, enabling seamless management of courses, user enrollments, and user authentication.
+
+### Design Decisions
+Admin side functionalities in Course Management, Student Management, and Enrollment Management:
+
+- **Course Management**:
+
+**View**: Admins can view all courses. This functionality provides admins with an overview of all courses available on the platform.
+
+**Create**: Admins are allowed to create new courses. This capability is essential as admins need to add new courses to the platform regularly.
+
+**Update**: Admins can update course details. This feature ensures that admins can keep course information accurate and up-to-date.
+
+**Delete**: Admins can delete courses. This capability is crucial for removing outdated or irrelevant courses from the platform.
+
+- **Student Management**:
+
+**View**: Admins can view all student profiles. This capability allows admins to see information about all registered students on the platform.
+
+**Delete**: Admins can delete student profiles. This capability is provided to handle scenarios such as removing duplicate or inactive student accounts.
+
+- **Enrollment Management**:
+
+**View**: Admins can view all enrollment records. This functionality enables admins to see which students are enrolled in which courses and monitor overall enrollment data.
+
+**Delete**: Admins can delete enrollment records. This capability allows admins to manage enrollments, such as removing erroneous or duplicate enrollments.
+
+*The reason for limiting the capabilities in Student Management and Enrollment Management to view and delete for admins is to maintain proper control and oversight. Admins typically have broader access to manage and maintain the platform, including handling user and enrollment data. However, certain operations like creating or modifying student profiles and enrollments may be restricted to specific roles or processes to ensure data integrity and security.*
 
 ## Technologies Used
 ### Frontend
@@ -45,3 +73,5 @@ To run the application locally, follow these steps:
 
 ## Contributors
 - [Dilanka Nirmal](https://github.com/Dilanka-Nirmal)
+
+
