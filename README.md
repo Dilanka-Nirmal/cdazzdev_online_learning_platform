@@ -4,8 +4,8 @@
 ## Overview
 The Online Learning Platform is a web application designed to provide users with access to educational resources, courses, and interactive learning materials. It offers features for both students and administrators, enabling seamless management of courses, user enrollments, and user authentication.
 
-### Design Decisions
-Admin side functionalities in Course Management, Student Management, and Enrollment Management:
+## Design Decisions
+The administrative functionalities in Course Management, Student Management, and Enrollment Management have been meticulously designed to provide efficient control over the platform's key aspects:
 
 - **Course Management**:
 
